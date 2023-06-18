@@ -6,3 +6,15 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.title-font{
+  font-family: 'Signika Negative', sans-serif;
+}
+.subtitle-font{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600;
+}
+
+.footer{
+  flex: 1 1 auto;
+}
