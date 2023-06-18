@@ -1,5 +1,5 @@
 const config = {
-    BASE_URL: 'https://purple-cycles-shop.loca.lt'
+    BASE_URL: 'https://gentle-zoos-smoke.loca.lt'
 }
 
 export default config
