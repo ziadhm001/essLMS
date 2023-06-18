@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
-
+import ToolTip from './Tooltip';
 const StartPage =() => {
     let isLoggedIn = true;
+    const [pop, setPop] = useState(false)
     const navigate = useNavigate()
     return (
         <div className='flex flex-col'>

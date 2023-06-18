@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const Home = () => {
+const LargeCourseCard = () => {
     return (
         <div> 
             Welcome! you are in home page
@@ -9,4 +9,4 @@ const Home = () => {
     )
 };
 
-export { Home as default }
+export { LargeCourseCard as default }

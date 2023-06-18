@@ -47,7 +47,7 @@ const Nav = () => {
               </div>
               <div className="flex white_bg justify-around py-4 backdrop-blur-md shadow-md w-full top-0 left-0 right-0 z-10">
                 <ul className="flex text-sm flex-row font-medium text-black overflow-auto hide_scrollbar h-max space-x-8 mx-8">
-                  <Link to='/' className="whitespace-nowrap flex space-x-1">Home</Link>
+                  <Link to='/home' className="whitespace-nowrap flex space-x-1">Home</Link>
                   <Link to='/courses' className="whitespace-nowrap">Courses</Link>
                   <Link to='/about' className="whitespace-nowrap">About</Link>
                   <Link to='/profile' className="whitespace-nowrap">Profile</Link>
