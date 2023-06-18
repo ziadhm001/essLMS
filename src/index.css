@@ -14,7 +14,18 @@ body {
   font-family: 'Roboto Mono', monospace;
   font-weight: 600;
 }
-
+.subtitleL-font{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
 .footer{
   flex: 1 1 auto;
+}
+
+.arrow-up {
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 10px solid #afafaf ;
 }
