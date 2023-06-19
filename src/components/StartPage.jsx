@@ -43,7 +43,7 @@ const StartPage =() => {
                     <img src='../../public/learner.png'alt='learner'></img>
                 </div>
             </div>
-            <Footer />
+            <Footer fixed/>
         </div>
     );
 };

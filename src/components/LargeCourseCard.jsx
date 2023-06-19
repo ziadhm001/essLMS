@@ -3,7 +3,7 @@ import React from 'react';
 
 const LargeCourseCard = () => {
     return (
-        <div className='bg-slate-50 hover:bg-blue-100 border border-blue-900 rounded-lg p-4 h-[215px] w-[1000px] m-10' >
+        <div className='bg-slate-50 hover:bg-blue-100 border border-blue-900 rounded-lg p-4 h-[215px] w-[1000px] self-center' >
             <div className='flex'>
                 <div className='h-[150px] w-[250px]'><img className="object-fill" src="../../public/MongoDB.png" alt="course image" /></div>
                 <div className='p-2'>
