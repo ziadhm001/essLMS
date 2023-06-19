@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({fixed}) => {
     return (
-        <div className='w-full fixed bottom-0 h-48 mt-auto bg-slate-900 flex flex-col p-12 pt-8 space-y-6'>
+        <div className={`w-full ${fixed ? "fixed" : ""}  bottom-0 h-48 mt-auto bg-slate-900 flex flex-col p-12 pt-8 space-y-6`}>
             <div className='flex flex-row justify-between'>
                 <p className='text-white subtitle-font text-md'>Top companies choose <span className='text-blue-300'>ESS</span> Business to build in-demand career skills.</p>
                 <div className='flex flex-row space-x-6'>
