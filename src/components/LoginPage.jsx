@@ -52,4 +52,4 @@ const LoginPage = () => {
     )
 }
 
-export { LoginPage as default}
+export default LoginPage

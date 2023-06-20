@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { FaFacebookSquare, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaList } from "react-icons/fa"
-import { BsSun, BsMoon} from "react-icons/bs"
 
 const Nav = () => {
     const navigate = useNavigate()
+    const pathName = window.location.pathname;
     return (
       <div className="flex flex-col items-center justify-center">    
             <nav className="flex w-full top-0 left-0 right-0 z-10 flex-col">
@@ -26,7 +25,7 @@ const Nav = () => {
                   <form>   
                       <div className="relative border rounded-lg shadow-xl border-blue-950">
                           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                              <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                              <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                           </div>
                           <input type="search" id="default-search" className="block p-2 w-96 px-12 text-sm text-gray-900 rounded-md" placeholder="Search by player, series etc..." required />
                       </div>
@@ -47,11 +46,11 @@ const Nav = () => {
               </div>
               <div className="flex white_bg justify-around py-4 backdrop-blur-md shadow-md w-full top-0 left-0 right-0 z-10">
                 <ul className="flex text-sm flex-row font-medium text-black overflow-auto hide_scrollbar h-max space-x-8 mx-8">
-                  <Link to='/home' className="whitespace-nowrap flex space-x-1">Home</Link>
-                  <Link to='/courses' className="whitespace-nowrap">Courses</Link>
-                  <Link to='/about' className="whitespace-nowrap">About</Link>
-                  <Link to='/profile' className="whitespace-nowrap">Profile</Link>
-                  <Link className="self-center"><FaList /></Link>
+                  <button onClick={() => {if(!pathName.includes('/home')) navigate('/home')}}  className="whitespace-nowrap flex space-x-1">Home</button>
+                  <button onClick={() => {if(!pathName.includes("/courses")) navigate('/courses')}} className="whitespace-nowrap">Courses</button>
+                  <button onClick={() => {if(!pathName.includes('/about')) navigate('/about')}} className="whitespace-nowrap">About</button>
+                  <button onClick={() => {if(!pathName.includes('/profile')) navigate('/profile')}}  className="whitespace-nowrap">Profile</button>
+                  <button className="self-center"><FaList /></button>
                 </ul>
               </div>
             </nav>
@@ -59,5 +58,6 @@ const Nav = () => {
   
     )
   }
-  
+
   export default Nav
+  
