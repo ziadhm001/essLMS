@@ -21,7 +21,7 @@ const Courses = () => {
                                     </div>
                                 </button>
                             {
-                                courses.map((course, index) => {if(index == page) return <LargeCourseCard />})
+                                courses.map((course, index) => {if(index == page) return <LargeCourseCard name={"MongoDB - The full guide!"} description={"A full guide from being a zero to such a hero."} creator={"Beshoy Atef"} src={"../../public/course.jpeg"} />})
                             }
                             <button className={`bg-white text-black rounded-r-md py-2 border border-gray-700 hover:bg-blue-100 px-3 flex h-12 self-center ${page === coursesNum -1 ? "disabled hover:bg-gray-200 cursor-default" : ""}`} onClick={() => {if (page !== coursesNum -1) setPage(prev => prev + 1) }}>
                                 <div className="flex flex-row align-middle self-center">
