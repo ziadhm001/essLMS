@@ -39,7 +39,7 @@ const Nav = () => {
                         <FaYoutube size={25}/>
                         <FaFacebookSquare size={25} />
                       </div>
-                      <button className="flex items-center justify-center text-white bg-blue-600 hover:bg-blue-800 shadow-md shadow-blue-900 rounded w-24 h-9 transition-colors duration-300">
+                      <button onClick={ () => {navigate('/registration')}} className="flex items-center justify-center text-white bg-blue-600 hover:bg-blue-800 shadow-md shadow-blue-900 rounded w-24 h-9 transition-colors duration-300">
                           Sign in
                       </button>
                   </div>
