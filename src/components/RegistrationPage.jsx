@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import config from '../../config';
@@ -59,6 +58,5 @@ const RegistrationPage = () => {
             </form>
         </div>
     )
-};
-
-export { RegistrationPage as default }
+}
+export default RegistrationPage

@@ -1,4 +1,3 @@
-import React from 'react';
 import ToolTip from './Tooltip';
 const SmallCourseCard = ({name, description, creator, src }) => {
     return (
@@ -19,4 +18,4 @@ const SmallCourseCard = ({name, description, creator, src }) => {
     )
 };
 
-export { SmallCourseCard as default }
+export default SmallCourseCard

@@ -1,6 +1,5 @@
-import React from 'react';
 
-const Footer = ({fixed}) => {
+const Footer = ({ fixed }) => {
     return (
         <div className={`w-full ${fixed ? "fixed" : ""}  bottom-0 h-48 mt-auto bg-slate-900 flex flex-col p-12 pt-8 space-y-6`}>
             <div className='flex flex-row justify-between'>
@@ -23,6 +22,6 @@ const Footer = ({fixed}) => {
             </div>
         </div>
     )
-};
+}
+export default Footer;
 
-export { Footer as default }

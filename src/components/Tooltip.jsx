@@ -25,6 +25,6 @@ const ToolTip = ({ children, tooltip }) => {
         ) : null}
     </div>
   );
-};
+}
 
-export default ToolTip;
+export default ToolTip
