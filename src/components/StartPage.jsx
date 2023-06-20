@@ -22,25 +22,24 @@ const StartPage =() => {
                         ?
                         (                  
                         <div className='space-x-4'>
-                            <button className='w-48 hover:bg-blue-800 text-md bg-blue-600 text-white shadow p-4 rounded-lg title-font' onClick={() => navigate('/courses')}>Continue learning</button>
-                            <button className='w-72 hover:bg-blue-50 text-md text-blue-600 bg-white border-blue-600 border shadow p-4 rounded-lg title-font'>Create a course</button>
+                            <button onClick={() => {navigate('/courses')}} className='w-48 hover:bg-blue-800 text-md bg-blue-600 text-white shadow p-4 rounded-lg title-font' >Continue learning</button>
+                            <button onClick={() => {navigate('/courses?create=true')}} className='w-72 hover:bg-blue-50 text-md text-blue-600 bg-white border-blue-600 border shadow p-4 rounded-lg title-font'>Create a course</button>
                         </div>
                         )
                         :
                         (                    
                         <div className='space-x-4'>
-                            <button className='w-48 hover:bg-blue-800 text-md bg-blue-600 text-white shadow p-4 rounded-lg title-font'>Join for free</button>
-                            <button className='w-72 hover:bg-blue-100 text-md text-blue-600 bg-white border-blue-600 border shadow p-4 rounded-lg title-font'>Login and continue your journey</button>
+                            <button onClick={ () => {navigate('/registration')}} className='w-48 hover:bg-blue-800 text-md bg-blue-600 text-white shadow p-4 rounded-lg title-font'>Join for free</button>
+                            <button onClick={ () => {navigate('/login')}} className='w-72 hover:bg-blue-100 text-md text-blue-600 bg-white border-blue-600 border shadow p-4 rounded-lg title-font'>Login and continue your journey</button>
                         </div>
                         )
                     }
-
                 </div>
                 <div>
                     <img src='../../public/learner.png'alt='learner'></img>
                 </div>
             </div>
-            <Footer/>
+            <Footer fixed/>
         </div>  
     );
 }
