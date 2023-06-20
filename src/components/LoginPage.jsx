@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import config from '../../config';
+import UserApi from '../api/user';
 
 const LoginPage = () => {
     const [error, setError] = useState('') 
@@ -9,17 +9,11 @@ const LoginPage = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
-    
 
-    const login = () => {
-        fetch(config.BASE_URL + '/login', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                email,
-                password
-            })
-        }).then((res) => res.json() ).then((response) => {
+    const signInHandler = (e) => {
+        e.preventDefault()
+        setError('')
+        UserApi.Login({email, password}).then((res) => res.json() ).then((response) => {
             if(response.error){
                 setError(response.error)
             } else {
@@ -30,13 +24,6 @@ const LoginPage = () => {
         }).catch((error) => {
             console.log(error)
         })
-    }
-
-
-    const signInHandler = (e) => {
-        e.preventDefault()
-        setError('')
-        login();
     }
 
 

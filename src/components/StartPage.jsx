@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 const StartPage =() => {
-    let isLoggedIn = true;
+    let isLoggedIn = false;
     const navigate = useNavigate()
     return (
         <div className='flex flex-col'>
