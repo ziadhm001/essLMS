@@ -1,9 +1,10 @@
 import { useRef } from "react";
-
-const ToolTip = ({ children, tooltip }) => {
+import CourseApi from "../api/course";
+import { useNavigate } from "react-router-dom";
+const ToolTip = ({ children, tooltip, id }) => {
   const tooltipRef = useRef(null);
   const container = useRef(null);
-
+  const navigate = useNavigate()
   return (
     <div
       ref={container}
@@ -19,7 +20,7 @@ const ToolTip = ({ children, tooltip }) => {
                 <p className="text-sm p-0 flex whitespace-normal">
                 {tooltip}
                 </p>
-                <button className="flex p-1 border rounded-md text-sm border-blue-950 bg-blue-600 justify-center self-end hover:bg-blue-800 text-white w-24">Enroll</button>
+                <button className="flex p-1 border rounded-md text-sm border-blue-950 bg-blue-600 justify-center self-end hover:bg-blue-800 text-white w-24" onClick={() => console.log(CourseApi.Join({id}).then((response) => navigate(`/course/${response.data.id}`)))}>Enroll</button>
             </div>
         </div>
         ) : null}

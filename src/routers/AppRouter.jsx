@@ -7,6 +7,7 @@ import RegistrationPage from '../components/RegistrationPage';
 import NotFoundPage from '../components/NotFoundPage';
 import Profile from '../components/Profile';
 import About from '../components/About';
+import Course from '../components/Course';
 
 const AppRouter = () => {
   return (
@@ -18,6 +19,7 @@ const AppRouter = () => {
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/" element={<StartPage />} />
+        <Route path="/course/:course" element={<Course />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

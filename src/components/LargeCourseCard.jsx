@@ -1,8 +1,11 @@
-const LargeCourseCard = ({ name, description, creator, src }) => {
+import { useNavigate } from "react-router-dom"
+
+const LargeCourseCard = ({ name, description, creator, src, id }) => {
+    const navigate = useNavigate()
     return (
-        <div className='bg-slate-50 hover:bg-blue-100 border border-blue-900 rounded-lg p-4 h-[215px] w-[1000px] self-center' >
+        <div className='bg-slate-50 hover:bg-blue-100 border border-blue-900 rounded-lg p-4 h-[215px] w-[1000px] self-center cursor-pointer' onClick={() => navigate(`/course/${id}`)} >
             <div className='flex'>
-                <div className='h-[150px] w-[250px]'><img className="object-fill" src={src} alt="course image" /></div>
+                <div className='h-[150px] w-[250px]'><img className="h-40" src={`${name.toLowerCase().includes("mongo") ? '/MongoDB.png' : name.toLowerCase().includes("three") ? '/Three js.jpg' : '/cpp.png' }`} alt="course image" /></div>
                 <div className='p-2'>
                     <h1>{name}</h1>
                     <p>{description}</p>

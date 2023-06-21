@@ -6,16 +6,14 @@ const axios = Axios.create({
     headers: { "Content-Type": "application/json", 'Bypass-Tunnel-Reminder': '121' },
 })
 
-// Add a request interceptor
-//axios.interceptors.request.use(function (config) {
-//   const user = JSON.parse(localStorage.getItem("user"))
-//    if (user) {
-//        let token = user.token
-//        config.headers.Authorization = `Bearer ${token}`
-//    }
-//
-//    return config
-//})
+axios.interceptors.request.use(function (config) {
+   const token = localStorage.getItem("token")
+   if (token) {
+       config.headers.Authorization = `Bearer ${token}`
+    }
+
+   return config
+})
 
 axios.interceptors.request.use(
     (config) => {

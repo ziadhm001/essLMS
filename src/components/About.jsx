@@ -18,7 +18,7 @@ const About = () => {
                 <div className='flex-row flex p-8 bg-white border shadow-xl justify-center space-x-8'>
                     <img src='/About.jpg' className='flex w-1/3 m-auto border rounded-lg shadow-xl'/>
                     <div className='flex flex-col self-center space-y-4 shadow p-4'>
-                        <p className='flex text-2xl subtitle-font text-center'>We are a group of software geeks called BZAAZ which stands for our names, maybe also our coding style.</p>
+                        <p className='flex text-2xl subtitle-font text-center'>We are a group of software geeks called AZZAB which stands for our names, maybe also our coding style.</p>
                         <p className='flex text-lg subtitle-font text-center p-12'>Our aim is to make programmers lives easier.</p>
                     </div>
                 </div>
