@@ -1,34 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import config from '../../config';
-
+import Nav from './Nav';
+import UserApi from '../api/user';
 const RegistrationPage = () => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('') 
+    const [name, setName] = useState('') 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [comfirmPassword, setComfirmPassword] = useState('')
     const [error, setError] = useState('') 
-
-    const signUP  = () => {
-        fetch(config.BASE_URL + '/signup', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: username,
-                email,
-                password
-            })
-        }).then((res) =>  res.json()).then((response) => {
-            if(response.error){
-                setError(response.error)
-            } else {
-                localStorage.setItem('token', response.token)
-                localStorage.setItem('user', response.user)
-                navigate("/home")
-            }
-        })
-    }
 
     const signUpHandler = (e) => {
         e.preventDefault();
@@ -37,26 +17,37 @@ const RegistrationPage = () => {
         if (password !== comfirmPassword){
             setError(`password & comfirm password doesn't match`)
         } else if(!passwordRegex.test(password)) {
-            setError(`Password must contain at least 8 characters that contain at least one uppercase letter, one lowercase letter, and one symbol.`)
+            setError(`Password must have <= 8 characters.`)
         } else {
-            navigate("/home")
-            setUsername('')
-            setPassword('')
-            setComfirmPassword('')
-            signUP()
+            UserApi.Register({email, password, name}).then((response) => {
+                if(response.data.error){
+                    setError(response.data.error)
+                } else {
+                    localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('user', response.data.user.name)
+                    localStorage.setItem('email', response.data.user.email)
+                    navigate("/")
+                }
+            }).catch((error) => {
+                console.log(error)
+            })
         }
     }
     return (
-        <div>
-            <form onSubmit={signUpHandler}>
-                <input type="text" placeholder="Enter Your username" value={username} onChange={(e) => setUsername(e.target.value.toLowerCase())}/>
-                <input type="text" placeholder="Enter Your email" value={email} onChange={(e) => setEmail(e.target.value.toLowerCase())}/>
-                <input type="password" placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <input type="password" placeholder="Comfirm Your Password" value={comfirmPassword} onChange={(e) => setComfirmPassword(e.target.value)}/>
-                <button>Submit</button>                
-                {error && <p>{error}</p>}
+        <div className='flex justify-center'>
+        <Nav hide/>
+        <div className='space-y-8 justify-center flex flex-col shadow border bg-blue-50 p-32 absolute top-1/2 -translate-y-1/2 overflow-hidden'>
+            <img src='/ess.png' className='p-4 w-32 shadow flex self-center bg-white'/>
+            <p className='text-center text-red-400 overflow-hidden'>{error}</p>
+            <form onSubmit={signUpHandler} className='flex flex-col space-y-4'>
+                <input type="text" className='p-2 shadow text-sm' placeholder="Enter Your name" value={name} onChange={(e) => setName(e.target.value.toLowerCase())}/>
+                <input type="text" className='p-2 shadow text-sm' placeholder="Enter Your email" value={email} onChange={(e) => setEmail(e.target.value.toLowerCase())}/>
+                <input type="password" className='p-2 shadow text-sm' placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" className='p-2 shadow text-sm' placeholder="Comfirm Your Password" value={comfirmPassword} onChange={(e) => setComfirmPassword(e.target.value)}/>
+                <button className='p-2 bg-white hover:bg-blue-200 border-blue-950 border rounded-md'>Submit</button>
             </form>
         </div>
+     </div>
     )
 }
 export default RegistrationPage

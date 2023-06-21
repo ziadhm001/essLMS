@@ -1,12 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
+import { useEffect, useState } from 'react'
 const StartPage =() => {
-    let isLoggedIn = false;
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => {
+        const user = localStorage.getItem('user')
+        if(user)
+            setIsLoggedIn(true)
+    },[])
     const navigate = useNavigate()
     return (
         <div className='flex flex-col'>
-            <Nav />
+            <Nav isLoggedIn={isLoggedIn}/>
+            <div className='w-full p-5 bg-blue-950 space-y-2' />
             <div className='flex flex-row m-auto'>
                 <div className='flex flex-col self-center text-justify space-y-6'>
                     <div>

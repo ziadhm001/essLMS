@@ -1,15 +1,22 @@
-import { useState } from 'react';
 import SmallCourseCard from './SmallCourseCard'
 import LargeCourseCard from './LargeCourseCard'
 import Nav from './Nav';
 import Footer from './Footer'
+import { useEffect, useState } from 'react'
 const Courses = () => {
     const courses = [1,1]
     const [page, setPage] = useState(0)
     const coursesNum = 2
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    useEffect(() => {
+        const user = localStorage.getItem('user')
+        if(user)
+            setIsLoggedIn(true)
+    },[])
     return (
         <div>
-            <Nav />
+            <Nav isLoggedIn={isLoggedIn} />
+            <div className='w-full p-5 bg-blue-950 space-y-2' />
                 <div className='flex-col flex space-y-4 p-16 pt-8 m-auto self-center pb-0'>
                     <p className='text-center p-4 title-font text-3xl'>Your Courses</p>
                         <div className='flex flex-row justify-center space-x-4'>
