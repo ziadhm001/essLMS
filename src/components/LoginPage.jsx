@@ -9,8 +9,6 @@ const LoginPage = () => {
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
-    
-
     const login = () => {
         fetch(config.BASE_URL + '/login', {
             method: 'POST',
@@ -32,13 +30,11 @@ const LoginPage = () => {
         })
     }
 
-
     const signInHandler = (e) => {
         e.preventDefault()
         setError('')
         login();
     }
-
 
     return (
         <div>

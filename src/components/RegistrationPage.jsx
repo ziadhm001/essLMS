@@ -34,10 +34,16 @@ const RegistrationPage = () => {
         e.preventDefault();
         setError('');
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"?><,./;'[\]\\=-]).{8,}$/
+        const usernameRegex = /^(?=.*[!@#$%^&*()_+{}\[\]:;\"'<>,.?/\\-])(?=.{8,})/
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (password !== comfirmPassword){
             setError(`password & comfirm password doesn't match`)
         } else if(!passwordRegex.test(password)) {
             setError(`Password must contain at least 8 characters that contain at least one uppercase letter, one lowercase letter, and one symbol.`)
+        } else if(!usernameRegex.test(username) ) {
+            setError(`username must be at least 8 character one of them must be a symbol`)
+        } else if (!emailRegex.test(email)) {
+            setError(`email form didn't correct`)
         } else {
             navigate("/home")
             setUsername('')
